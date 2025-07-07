@@ -28,7 +28,7 @@ def _add_todo(title: str, store: StoreTodoFunction | None = None) -> Todo:
 
 def add_todo(title: str) -> Todo:
     """Add a todo item."""
-    return _add_todo(title)
+    return _add_todo(title, fake_store_todo)
 
 
 def fake_store_todo(todo: "Todo") -> None:
