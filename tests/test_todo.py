@@ -15,4 +15,5 @@ def test_can_import_core() -> None:
 
 def test_can_call_add_todo() -> None:
     """Test that we can call add_todo function."""
-    add_todo("buy milk")
+    result = add_todo("buy milk")
+    assert result == "buy milk"
