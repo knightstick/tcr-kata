@@ -25,13 +25,14 @@ CLIArgs = AddCommand | ListCommand
 
 def run(args: CLIArgs) -> str:
     """Execute CLI command with structured args."""
-    if isinstance(args, AddCommand):
-        todo = add_todo(args.title)
-        return str(todo)
-    elif isinstance(args, ListCommand):
-        return "No todos yet"  # Placeholder
-    else:
-        raise ValueError(f"Unknown command: {args}")
+    match args:
+        case AddCommand(title=title):
+            todo = add_todo(title)
+            return str(todo)
+        case ListCommand():
+            return "No todos yet"  # Placeholder
+        case _:
+            raise ValueError(f"Unknown command: {args}")
 
 
 def main(args: list[str] | None = None) -> str | None:
