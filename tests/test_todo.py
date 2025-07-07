@@ -13,3 +13,9 @@ def test_todo_stores_title() -> None:
     """Test that Todo stores the title."""
     todo = Todo("buy milk")
     assert todo.title == "buy milk"
+
+
+def test_todo_has_string_representation() -> None:
+    """Test that Todo can be converted to string."""
+    todo = Todo("buy milk")
+    str(todo)
