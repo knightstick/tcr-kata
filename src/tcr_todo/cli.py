@@ -3,7 +3,7 @@
 import argparse
 from dataclasses import dataclass
 
-from tcr_todo.core import add_todo
+from tcr_todo.core import add_todo, list_todos
 
 
 @dataclass

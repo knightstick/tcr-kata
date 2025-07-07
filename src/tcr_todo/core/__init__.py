@@ -16,3 +16,8 @@ class Todo:
 def add_todo(title: str) -> Todo:
     """Add a todo item."""
     return Todo(title)
+
+
+def list_todos() -> list[Todo]:
+    """List all todo items."""
+    return []
