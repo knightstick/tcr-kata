@@ -3,13 +3,13 @@
 from tcr_todo.core import add_todo, Todo
 
 
-def test_can_call_add_todo() -> None:
-    """Test that we can call add_todo function."""
+def test_add_todo_creates_todo_with_title() -> None:
+    """Test that add_todo creates a Todo with the given title."""
     result = add_todo("buy milk")
     assert result.title == "buy milk"
 
 
-def test_can_create_todo() -> None:
-    """Test that we can create a Todo object."""
+def test_todo_stores_title() -> None:
+    """Test that Todo stores the title."""
     todo = Todo("buy milk")
     assert todo.title == "buy milk"
