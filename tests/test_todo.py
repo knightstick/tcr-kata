@@ -13,6 +13,6 @@ def test_can_import_core() -> None:
     import tcr_todo.core
 
 
-def test_can_import_add_todo() -> None:
-    """Test that we can import add_todo function."""
-    pass  # add_todo is imported at module level
+def test_can_call_add_todo() -> None:
+    """Test that we can call add_todo function."""
+    add_todo()
