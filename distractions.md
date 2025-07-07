@@ -13,6 +13,7 @@ Create a todo from the command line
 - Things to explore later
 - Refactoring opportunities
 - Architecture decisions to revisit
+- Todos can have optional descriptions
 
 ## Notes
 - When running TCR script, narrate the red/green feedback for user visibility (format ✅/❌, type check ✅/❌, tests ✅/❌)
