@@ -32,3 +32,9 @@ def test_run_with_list_command_type_checks() -> None:
     result: str = run(
         command
     )  # Type checker will fail if run() can't handle ListCommand
+
+
+def test_main_handles_list_command() -> None:
+    """Test that main can handle a list command."""
+    result = main(["list"])
+    assert result == "[]"

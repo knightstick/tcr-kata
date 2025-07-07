@@ -46,6 +46,9 @@ def main(args: list[str] | None = None) -> str | None:
         title = args[1]
         add_command = AddCommand(title=title)
         return run(add_command)
+    elif command == "list":
+        list_command = ListCommand()
+        return run(list_command)
 
     return None
 
