@@ -3,6 +3,7 @@
 from typing import Callable
 
 from tcr_todo.models import Todo
+from tcr_todo.repo import fake_store_todo as repo_fake_store_todo
 
 StoreTodoFunction = Callable[[Todo], None]
 
@@ -17,12 +18,7 @@ def _add_todo(title: str, store: StoreTodoFunction | None = None) -> Todo:
 
 def add_todo(title: str) -> Todo:
     """Add a todo item."""
-    return _add_todo(title, fake_store_todo)
-
-
-def fake_store_todo(todo: "Todo") -> None:
-    """Fake store function that does nothing."""
-    pass
+    return _add_todo(title, repo_fake_store_todo)
 
 
 def list_todos() -> list[Todo]:
