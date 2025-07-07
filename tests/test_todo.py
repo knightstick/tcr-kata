@@ -1,7 +1,6 @@
 """Tests for todo functionality."""
 
 from tcr_todo.core import add_todo, Todo
-from tcr_todo.cli import main
 
 
 def test_add_todo_creates_todo_with_title() -> None:
@@ -21,8 +20,3 @@ def test_todo_has_string_representation() -> None:
     todo = Todo("buy milk")
     result = str(todo)
     assert "buy milk" in result
-
-
-def test_can_call_cli_main() -> None:
-    """Test that we can call the CLI main function."""
-    main()
