@@ -11,6 +11,9 @@ Starting TCR kata with command line TODO list
 - Refactoring opportunities
 - Architecture decisions to revisit
 
+## Notes
+- When running TCR script, narrate the red/green feedback for user visibility (format ✅/❌, type check ✅/❌, tests ✅/❌)
+
 ---
 
 *"Keep focused on the next clear step while tracking distractions separately."*

@@ -18,6 +18,8 @@ TCR (Test && Commit || Revert) is a development practice where:
 - If tests pass → automatically commit
 - If tests fail → automatically revert to last working state
 
+**Origins:** Created by Kent Beck, Lars Barlindhaug, Oddmund Strømme, and Ole Johannessen during "Limbo on the Cheap" experiments. Kent Beck introduced "test && commit", and Oddmund Strømme suggested adding "|| revert" for symmetry.
+
 **Key Benefits:**
 - Forces extremely small, incremental steps
 - Provides immediate feedback on code changes
