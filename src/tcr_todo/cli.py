@@ -54,4 +54,6 @@ def main(args: list[str] | None = None) -> str | None:
 
 
 if __name__ == "__main__":
-    main()
+    result = main()
+    if result:
+        print(result)
