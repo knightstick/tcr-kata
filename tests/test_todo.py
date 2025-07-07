@@ -21,4 +21,5 @@ def test_can_call_add_todo() -> None:
 
 def test_can_create_todo() -> None:
     """Test that we can create a Todo object."""
-    Todo("buy milk")
+    todo = Todo("buy milk")
+    assert todo.text == "buy milk"
