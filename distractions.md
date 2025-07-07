@@ -15,6 +15,9 @@ Create a todo from the command line
 - Architecture decisions to revisit
 - Todos can have optional descriptions
 
+## Decisions
+- Use `argparse` for CLI argument parsing (built-in, no dependencies, easy to test with args list)
+
 ## Notes
 - When running TCR script, narrate the red/green feedback for user visibility (format ✅/❌, type check ✅/❌, tests ✅/❌)
 
