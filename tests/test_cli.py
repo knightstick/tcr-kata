@@ -15,4 +15,5 @@ def test_main_accepts_args_list() -> None:
 
 def test_main_handles_add_command() -> None:
     """Test that main can handle an add command."""
-    main(["add", "buy milk"])
+    result = main(["add", "buy milk"])
+    assert isinstance(result, str)
