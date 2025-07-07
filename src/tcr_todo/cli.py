@@ -7,3 +7,7 @@ def main(args: list[str] | None = None) -> None:
     """Main CLI entry point."""
     parser = argparse.ArgumentParser()
     pass
+
+
+if __name__ == "__main__":
+    main()
