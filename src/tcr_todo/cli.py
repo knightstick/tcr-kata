@@ -54,7 +54,12 @@ def main(args: list[str] | None = None) -> str | None:
     return None
 
 
-if __name__ == "__main__":
+def cli_main() -> None:
+    """CLI entry point for poetry script."""
     result = main(sys.argv[1:])
     if result:
         print(result)
+
+
+if __name__ == "__main__":
+    cli_main()

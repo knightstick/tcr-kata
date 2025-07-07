@@ -45,4 +45,5 @@ addopts = ["-v"]
 
 [tool.poetry.scripts]
 tcr = "scripts.tcr:main"
+todo = "tcr_todo.cli:cli_main"
 
