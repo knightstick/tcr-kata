@@ -6,7 +6,7 @@ authors = [
     {name = "Christopher Jewell"}
 ]
 readme = "README.md"
-requires-python = "^3.9"
+requires-python = ">=3.9"
 dependencies = [
 ]
 
@@ -19,4 +19,30 @@ build-backend = "poetry.core.masonry.api"
 pytest = "^8.4.1"
 ruff = "^0.12.2"
 mypy = "^1.16.1"
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "C4"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = ["-v"]
+
+[tool.poetry.scripts]
+tcr = "scripts.tcr:main"
 
