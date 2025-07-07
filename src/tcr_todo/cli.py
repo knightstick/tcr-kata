@@ -1,6 +1,7 @@
 """Command line interface for tcr_todo."""
 
 import argparse
+import sys
 from dataclasses import dataclass
 
 from tcr_todo.core import add_todo, list_todos
@@ -54,6 +55,6 @@ def main(args: list[str] | None = None) -> str | None:
 
 
 if __name__ == "__main__":
-    result = main()
+    result = main(sys.argv[1:])
     if result:
         print(result)
