@@ -2,20 +2,9 @@
 
 from typing import Callable
 
+from tcr_todo.models import Todo
 
-StoreTodoFunction = Callable[["Todo"], None]
-
-
-class Todo:
-    """A todo item."""
-
-    def __init__(self, title: str) -> None:
-        """Initialize a todo with title."""
-        self.title = title
-
-    def __str__(self) -> str:
-        """Return string representation of todo."""
-        return self.title
+StoreTodoFunction = Callable[[Todo], None]
 
 
 def _add_todo(title: str, store: StoreTodoFunction | None = None) -> Todo:

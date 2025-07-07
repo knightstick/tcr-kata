@@ -1,6 +1,6 @@
 """Todo repository functions."""
 
-from tcr_todo.core import Todo
+from tcr_todo.models import Todo
 
 
 def fake_store_todo(todo: Todo) -> None:
