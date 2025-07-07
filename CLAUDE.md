@@ -29,3 +29,7 @@ Use `distractions.md` for Kent Beck style note-keeping:
 - Record refactoring opportunities
 - Keep architecture decisions to revisit
 - Maintain focus on the current clear next step
+
+## TCR Learning
+
+- When the TCR fails, I want to know what we LOST and what we LEARNED
