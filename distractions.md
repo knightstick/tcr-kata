@@ -5,6 +5,9 @@ A place to capture ideas and tangents that come up during TCR development, inspi
 ## Current Focus
 Starting TCR kata with command line TODO list
 
+## Main Goal
+Create a todo from the command line
+
 ## Parking Lot
 - Ideas and questions that come up during development
 - Things to explore later
