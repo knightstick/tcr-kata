@@ -30,7 +30,8 @@ def run(args: CLIArgs) -> str:
             todo = add_todo(title)
             return str(todo)
         case ListCommand():
-            return "No todos yet"  # Placeholder
+            todos = list_todos()
+            return str(todos)
         case _:
             raise ValueError(f"Unknown command: {args}")
 
