@@ -1,5 +1,7 @@
 """Tests for todo functionality."""
 
+from tcr_todo.core import add_todo
+
 
 def test_true_is_truthy() -> None:
     """Test that true is truthy."""
@@ -9,3 +11,8 @@ def test_true_is_truthy() -> None:
 def test_can_import_core() -> None:
     """Test that we can import from tcr_todo.core."""
     import tcr_todo.core
+
+
+def test_can_import_add_todo() -> None:
+    """Test that we can import add_todo function."""
+    pass  # add_todo is imported at module level
