@@ -1,6 +1,7 @@
 """Tests for todo functionality."""
 
 from tcr_todo.core import add_todo, Todo
+import tcr_todo.cli
 
 
 def test_add_todo_creates_todo_with_title() -> None:
@@ -20,3 +21,8 @@ def test_todo_has_string_representation() -> None:
     todo = Todo("buy milk")
     result = str(todo)
     assert "buy milk" in result
+
+
+def test_can_import_cli() -> None:
+    """Test that we can import the CLI module."""
+    pass  # cli module imported at top level
