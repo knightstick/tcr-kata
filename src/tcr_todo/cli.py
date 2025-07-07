@@ -36,7 +36,8 @@ def main(args: list[str] | None = None) -> str | None:
     command = args[0]
     if command == "add":
         title = args[1]
-        return cli_add(title)
+        add_command = AddCommand(title=title)
+        return run(add_command)
 
     return None
 
