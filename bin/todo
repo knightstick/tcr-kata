@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Todo CLI wrapper script
+
+# Change to the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+
+# Run poetry from the project directory
+cd "$PROJECT_DIR" && poetry run todo "$@"

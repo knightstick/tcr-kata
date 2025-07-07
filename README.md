@@ -34,8 +34,22 @@ Build a "command line TODO list" - intentionally vague to explore emergent desig
 
 ## Setup
 
-TODO: Add setup instructions as we build them
+```bash
+# Install dependencies
+poetry install
+
+# Use the CLI
+poetry run todo add "buy milk"
+poetry run todo list
+
+# Or use the bash wrapper
+./bin/todo add "buy milk"
+./bin/todo list
+```
 
 ## Current Status
 
-Starting the experiment...
+✅ **Working CLI with add/list commands**
+- Clean command-line interface
+- Type-safe architecture with dependency injection
+- Ready for persistence implementation
