@@ -8,6 +8,10 @@ class Todo:
         """Initialize a todo with title."""
         self.title = title
 
+    def __str__(self) -> str:
+        """Return string representation of todo."""
+        return self.title
+
 
 def add_todo(title: str) -> Todo:
     """Add a todo item."""
