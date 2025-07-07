@@ -16,6 +16,7 @@ Create a todo from the command line
 - Todos can have optional descriptions
 - todocli unknown should raise an error
 - Use pattern matching (match/case) for run() instead of isinstance
+- Clean up "Todo" type annotations (forward references)
 
 ## Decisions
 - Use `argparse` for CLI argument parsing (built-in, no dependencies, easy to test with args list)
