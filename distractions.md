@@ -14,6 +14,7 @@ Create a todo from the command line
 - Refactoring opportunities
 - Architecture decisions to revisit
 - Todos can have optional descriptions
+- todocli unknown should raise an error
 
 ## Decisions
 - Use `argparse` for CLI argument parsing (built-in, no dependencies, easy to test with args list)

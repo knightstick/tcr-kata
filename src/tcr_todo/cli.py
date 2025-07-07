@@ -5,8 +5,12 @@ import argparse
 
 def main(args: list[str] | None = None) -> None:
     """Main CLI entry point."""
-    parser = argparse.ArgumentParser()
-    pass
+    if not args:
+        return
+
+    command = args[0]
+    if command == "add":
+        pass  # TODO: handle add command
 
 
 if __name__ == "__main__":
