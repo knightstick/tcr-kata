@@ -5,6 +5,12 @@ import argparse
 from tcr_todo.core import add_todo
 
 
+def cli_add(title: str) -> str:
+    """Add a todo with the given title."""
+    todo = add_todo(title)
+    return str(todo)
+
+
 def main(args: list[str] | None = None) -> str | None:
     """Main CLI entry point."""
     if not args:
@@ -13,8 +19,7 @@ def main(args: list[str] | None = None) -> str | None:
     command = args[0]
     if command == "add":
         title = args[1]
-        todo = add_todo(title)
-        return str(todo)
+        return cli_add(title)
 
     return None
 
