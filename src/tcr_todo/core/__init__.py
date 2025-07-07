@@ -1,5 +1,10 @@
 """Core todo functionality."""
 
+from typing import Callable
+
+
+StoreTodoFunction = Callable[["Todo"], None]
+
 
 class Todo:
     """A todo item."""
@@ -13,9 +18,12 @@ class Todo:
         return self.title
 
 
-def _add_todo(title: str) -> Todo:
+def _add_todo(title: str, store: StoreTodoFunction | None = None) -> Todo:
     """Add a todo item (internal)."""
-    return Todo(title)
+    todo = Todo(title)
+    if store:
+        store(todo)
+    return todo
 
 
 def add_todo(title: str) -> Todo:
