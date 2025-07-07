@@ -13,9 +13,14 @@ class Todo:
         return self.title
 
 
+def _add_todo(title: str) -> Todo:
+    """Add a todo item (internal)."""
+    return Todo(title)
+
+
 def add_todo(title: str) -> Todo:
     """Add a todo item."""
-    return Todo(title)
+    return _add_todo(title)
 
 
 def list_todos() -> list[Todo]:
