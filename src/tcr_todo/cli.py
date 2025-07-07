@@ -13,13 +13,25 @@ class AddCommand:
     title: str
 
 
-CLIArgs = AddCommand
+@dataclass
+class ListCommand:
+    """Command to list todos."""
+
+    pass
+
+
+CLIArgs = AddCommand | ListCommand
 
 
 def run(args: CLIArgs) -> str:
     """Execute CLI command with structured args."""
-    todo = add_todo(args.title)
-    return str(todo)
+    if isinstance(args, AddCommand):
+        todo = add_todo(args.title)
+        return str(todo)
+    elif isinstance(args, ListCommand):
+        return "No todos yet"  # Placeholder
+    else:
+        raise ValueError(f"Unknown command: {args}")
 
 
 def main(args: list[str] | None = None) -> str | None:

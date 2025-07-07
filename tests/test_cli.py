@@ -1,6 +1,6 @@
 """Tests for CLI functionality."""
 
-from tcr_todo.cli import main, run, AddCommand
+from tcr_todo.cli import main, run, AddCommand, ListCommand
 
 
 def test_can_call_cli_main() -> None:
@@ -24,3 +24,11 @@ def test_run_with_add_command() -> None:
     command = AddCommand(title="buy milk")
     result = run(command)
     assert result == "buy milk"
+
+
+def test_run_with_list_command_type_checks() -> None:
+    """Test that ListCommand type checks with run()."""
+    command = ListCommand()
+    result: str = run(
+        command
+    )  # Type checker will fail if run() can't handle ListCommand
