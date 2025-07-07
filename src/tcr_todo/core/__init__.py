@@ -31,6 +31,11 @@ def add_todo(title: str) -> Todo:
     return _add_todo(title)
 
 
+def fake_store_todo(todo: "Todo") -> None:
+    """Fake store function that does nothing."""
+    pass
+
+
 def list_todos() -> list[Todo]:
     """List all todo items."""
     return []
