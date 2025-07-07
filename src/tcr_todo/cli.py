@@ -22,12 +22,6 @@ def run(args: CLIArgs) -> str:
     return str(todo)
 
 
-def cli_add(title: str) -> str:
-    """Add a todo with the given title."""
-    todo = add_todo(title)
-    return str(todo)
-
-
 def main(args: list[str] | None = None) -> str | None:
     """Main CLI entry point."""
     if not args:
