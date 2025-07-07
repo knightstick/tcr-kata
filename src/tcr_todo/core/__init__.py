@@ -9,6 +9,6 @@ class Todo:
         self.text = text
 
 
-def add_todo(text: str) -> str:
+def add_todo(text: str) -> Todo:
     """Add a todo item."""
-    return text
+    return Todo(text)
