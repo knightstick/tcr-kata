@@ -1,6 +1,6 @@
 """Core todo functionality."""
 
 
-def add_todo(text: str) -> None:
+def add_todo(text: str) -> str:
     """Add a todo item."""
-    pass
+    return text
