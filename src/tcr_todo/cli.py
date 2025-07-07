@@ -1,8 +1,25 @@
 """Command line interface for tcr_todo."""
 
 import argparse
+from dataclasses import dataclass
 
 from tcr_todo.core import add_todo
+
+
+@dataclass
+class AddCommand:
+    """Command to add a todo."""
+
+    title: str
+
+
+CLIArgs = AddCommand
+
+
+def run(args: CLIArgs) -> str:
+    """Execute CLI command with structured args."""
+    todo = add_todo(args.title)
+    return str(todo)
 
 
 def cli_add(title: str) -> str:
