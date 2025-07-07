@@ -3,11 +3,6 @@
 from tcr_todo.core import add_todo, Todo
 
 
-def test_can_import_core() -> None:
-    """Test that we can import from tcr_todo.core."""
-    import tcr_todo.core
-
-
 def test_can_call_add_todo() -> None:
     """Test that we can call add_todo function."""
     result = add_todo("buy milk")
