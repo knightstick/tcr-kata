@@ -10,7 +10,7 @@ def test_repos_satisfy_protocol() -> None:
     This is the main value of Protocols - static type checking guarantees.
     """
     # Type checker verifies these assignments are valid
-    memory_repo: TodoRepository = InMemoryRepo()
-    file_repo: TodoRepository = FileRepo("test.json")
+    _memory_repo: TodoRepository = InMemoryRepo()
+    _file_repo: TodoRepository = FileRepo("test.json")
 
     # That's it! Mypy guarantees everything we need.
