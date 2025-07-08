@@ -44,7 +44,7 @@ def main(args: list[str] | None = None) -> str | None:
 
     command = args[0]
     if command == "add":
-        title = args[1]
+        title = " ".join(args[1:])
         add_command = AddCommand(title=title)
         return run(add_command)
     elif command == "list":

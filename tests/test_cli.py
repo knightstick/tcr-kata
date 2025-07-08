@@ -63,3 +63,9 @@ def test_main_raises_error_for_unknown_command() -> None:
 
     with pytest.raises(ValueError, match="Unknown command"):
         main(["unknown"])
+
+
+def test_add_command_concatenates_multiple_strings() -> None:
+    """Test that add command concatenates multiple string arguments."""
+    result = main(["add", "buy", "milk"])
+    assert result == "buy milk"
