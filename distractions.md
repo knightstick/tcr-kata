@@ -15,6 +15,7 @@ A place to capture ideas and tangents that come up during TCR development, inspi
 ✅ Test full add→list workflow with persistence
 ✅ Better formatting for list output (TodoList container)
 ✅ Clean up "Todo" type annotations (all good, no forward references needed)
+✅ todocli unknown should raise an error (ValueError with helpful message)
 
 ## Parking Lot
 - Ideas and questions that come up during development
@@ -22,7 +23,6 @@ A place to capture ideas and tangents that come up during TCR development, inspi
 - Refactoring opportunities
 - Architecture decisions to revisit
 - Todos can have optional descriptions
-- todocli unknown should raise an error
 
 ## Decisions
 - Use `argparse` for CLI argument parsing (built-in, no dependencies, easy to test with args list)
