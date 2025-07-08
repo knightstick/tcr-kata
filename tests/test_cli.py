@@ -69,3 +69,9 @@ def test_add_command_concatenates_multiple_strings() -> None:
     """Test that add command concatenates multiple string arguments."""
     result = main(["add", "buy", "milk"])
     assert result == "buy milk"
+
+
+def test_main_handles_empty_args() -> None:
+    """Test that main handles empty args gracefully."""
+    result = main([])
+    assert result is None
