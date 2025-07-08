@@ -68,3 +68,8 @@ def list_todos_from_repo(repo: TodoRepository) -> TodoList:
     """List all todo items from a specific repository."""
     todos = _list_todos(repo.retrieve_todos)
     return TodoList(todos)
+
+
+def create_todo_core(title: str) -> TodoCore:
+    """Create a new TodoCore instance."""
+    return TodoCore(title)
