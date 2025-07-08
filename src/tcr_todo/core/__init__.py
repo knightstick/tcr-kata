@@ -3,10 +3,13 @@
 from typing import Callable
 
 from tcr_todo.models import Todo, TodoList
-from tcr_todo.repo import store_todo, retrieve_todos
+from tcr_todo.repo import store_todo, retrieve_todos, InMemoryRepo
 
 StoreTodoFunction = Callable[[Todo], None]
 RetrieveTodosFunction = Callable[[], list[Todo]]
+
+# Default repo instance
+_default_repo = InMemoryRepo()
 
 
 def _add_todo(title: str, store: StoreTodoFunction | None = None) -> Todo:
@@ -19,7 +22,7 @@ def _add_todo(title: str, store: StoreTodoFunction | None = None) -> Todo:
 
 def add_todo(title: str) -> Todo:
     """Add a todo item."""
-    return _add_todo(title, store_todo)
+    return _add_todo(title, _default_repo.store_todo)
 
 
 def _list_todos(retrieve: RetrieveTodosFunction | None = None) -> list[Todo]:
@@ -31,5 +34,5 @@ def _list_todos(retrieve: RetrieveTodosFunction | None = None) -> list[Todo]:
 
 def list_todos() -> TodoList:
     """List all todo items."""
-    todos = _list_todos(retrieve_todos)
+    todos = _list_todos(_default_repo.retrieve_todos)
     return TodoList(todos)
