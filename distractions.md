@@ -3,11 +3,12 @@
 A place to capture ideas and tangents that come up during TCR development, inspired by Kent Beck's note-keeping style in "TDD by Example".
 
 ## Current Focus
-Building FileRepo for persistent file-based storage
+✅ Building FileRepo for persistent file-based storage - COMPLETE!
 
 ## Previous Goals
 ✅ Create a todo from the command line - COMPLETE!
 ✅ Building persistence layer with dependency injection - COMPLETE!
+✅ FileRepo with JSON persistence - COMPLETE!
 
 ## Completed Session Goals
 ✅ Implement actual persistence in `repo.store_todo()` (in-memory list)
@@ -20,6 +21,10 @@ Building FileRepo for persistent file-based storage
 ✅ Multiple argument concatenation for add command (user-friendly)
 ✅ Pattern matching for main CLI parsing (cleaner, more declarative)
 ✅ Refactor to explicit InMemoryRepo class (ready for multiple repo types)
+✅ Complete FileRepo with JSON persistence and comprehensive tests
+✅ TodoRepository Protocol for type-safe repo interfaces
+✅ Protocol compliance verification with clean type checking
+✅ Cleaned up old module-level repo code
 
 ## Parking Lot
 - Ideas and questions that come up during development
@@ -27,7 +32,6 @@ Building FileRepo for persistent file-based storage
 - Refactoring opportunities
 - Architecture decisions to revisit
 - Todos can have optional descriptions
-- Make sure that our repos have the same interface using types (Protocol/interface)
 - The models probably belong in the core (domain models in domain layer)
 
 ## Decisions
