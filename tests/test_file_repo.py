@@ -39,3 +39,26 @@ def test_store_and_retrieve_single_todo() -> None:
     finally:
         if os.path.exists(filename):
             os.unlink(filename)
+
+
+def test_store_multiple_todos() -> None:
+    """Test storing multiple todos."""
+    with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".json") as f:
+        filename = f.name
+
+    try:
+        repo = FileRepo(filename)
+
+        # Store multiple todos
+        repo.store_todo(Todo("first task"))
+        repo.store_todo(Todo("second task"))
+
+        # Retrieve and verify
+        todos = repo.retrieve_todos()
+        assert len(todos) == 2
+        assert todos[0].title == "first task"
+        assert todos[1].title == "second task"
+
+    finally:
+        if os.path.exists(filename):
+            os.unlink(filename)
