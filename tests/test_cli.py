@@ -37,4 +37,6 @@ def test_run_with_list_command_type_checks() -> None:
 def test_main_handles_list_command() -> None:
     """Test that main can handle a list command."""
     result = main(["list"])
-    assert result == "[]"
+    assert isinstance(result, str)
+    assert result.startswith("[")
+    assert result.endswith("]")
