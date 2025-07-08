@@ -1,4 +1,4 @@
-"""Todo repository functions."""
+"""Todo repository implementations and Protocol."""
 
 import json
 import os
