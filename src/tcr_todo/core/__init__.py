@@ -6,6 +6,7 @@ from tcr_todo.models import Todo
 from tcr_todo.repo import store_todo
 
 StoreTodoFunction = Callable[[Todo], None]
+RetrieveTodosFunction = Callable[[], list[Todo]]
 
 
 def _add_todo(title: str, store: StoreTodoFunction | None = None) -> Todo:
