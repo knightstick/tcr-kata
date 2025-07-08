@@ -2,7 +2,21 @@
 
 import json
 import os
+from typing import Protocol
 from tcr_todo.models import Todo
+
+
+class TodoRepository(Protocol):
+    """Protocol defining the interface for todo repositories."""
+
+    def store_todo(self, todo: Todo) -> None:
+        """Store a todo item."""
+        ...
+
+    def retrieve_todos(self) -> list[Todo]:
+        """Retrieve all stored todos."""
+        ...
+
 
 # In-memory storage for todos
 _todos: list[Todo] = []
