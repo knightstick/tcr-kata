@@ -1,6 +1,7 @@
 """Tests for todo functionality."""
 
-from tcr_todo.core import add_todo, _list_todos, Todo
+from tcr_todo.core import add_todo, _list_todos, list_todos_from_repo, Todo
+from tcr_todo.repo import InMemoryRepo, FileRepo
 
 
 def test_add_todo_creates_todo_with_title() -> None:
@@ -31,3 +32,19 @@ def test_list_todos_with_fake_repo() -> None:
 
     result = _list_todos(fake_retrieve)
     assert result == expected_todos
+
+
+def test_repos_work_with_protocol() -> None:
+    """Test that both InMemoryRepo and FileRepo work with TodoRepository protocol."""
+    # InMemoryRepo
+    memory_repo = InMemoryRepo()
+    memory_repo.store_todo(Todo("memory task"))
+
+    result = list_todos_from_repo(memory_repo)
+    assert len(result.todos) == 1
+    assert result.todos[0].title == "memory task"
+
+    # FileRepo (without temp file for simplicity - just test it accepts the protocol)
+    file_repo = FileRepo("test.json")
+    result = list_todos_from_repo(file_repo)  # Should return empty list
+    assert len(result.todos) == 0
