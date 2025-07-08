@@ -4,7 +4,7 @@ import sys
 from dataclasses import dataclass
 
 from tcr_todo.core import TodoCore
-from tcr_todo.repo import FileRepo
+from tcr_todo.repo import SQLiteRepo
 
 
 @dataclass
@@ -63,7 +63,7 @@ class CLI:
 
 def cli_main() -> None:
     """CLI entry point for poetry script."""
-    todo_core = TodoCore(FileRepo(".data/todos.json"))
+    todo_core = TodoCore(SQLiteRepo(".data/todos.db"))
     cli = CLI(todo_core)
     result = cli.main(sys.argv[1:])
     if result:
