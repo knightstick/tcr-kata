@@ -1,44 +1,49 @@
 """Tests for CLI functionality."""
 
-from tcr_todo.cli import main, run, AddCommand, ListCommand, CLI
+from tcr_todo.cli import AddCommand, ListCommand, CLI
 from tcr_todo.core import TodoCore
 from tcr_todo.repo import InMemoryRepo
 
 
 def test_can_call_cli_main() -> None:
     """Test that we can call the CLI main function."""
-    main()
+    cli = CLI(TodoCore(InMemoryRepo()))
+    cli.main()
 
 
 def test_main_accepts_args_list() -> None:
     """Test that main can accept an args list."""
-    main(["add", "buy milk"])
+    cli = CLI(TodoCore(InMemoryRepo()))
+    cli.main(["add", "buy milk"])
 
 
 def test_main_handles_add_command() -> None:
     """Test that main can handle an add command."""
-    result = main(["add", "buy milk"])
-    assert isinstance(result, str)
+    cli = CLI(TodoCore(InMemoryRepo()))
+    result = cli.main(["add", "buy milk"])
+    assert result == "buy milk"
 
 
 def test_run_with_add_command() -> None:
     """Test that run executes AddCommand correctly."""
+    cli = CLI(TodoCore(InMemoryRepo()))
     command = AddCommand(title="buy milk")
-    result = run(command)
+    result = cli.run(command)
     assert result == "buy milk"
 
 
 def test_run_with_list_command_type_checks() -> None:
     """Test that ListCommand type checks with run()."""
+    cli = CLI(TodoCore(InMemoryRepo()))
     command = ListCommand()
-    result: str = run(
-        command
-    )  # Type checker will fail if run() can't handle ListCommand
+    result: str = cli.run(command)
+    assert isinstance(result, str)
 
 
 def test_main_handles_list_command() -> None:
     """Test that main can handle a list command."""
-    result = main(["list"])
+    cli = CLI(TodoCore(InMemoryRepo()))
+    result = cli.main(["list"])
     assert isinstance(result, str)
     assert result.startswith("[")
     assert result.endswith("]")
@@ -46,15 +51,17 @@ def test_main_handles_list_command() -> None:
 
 def test_add_then_list_integration() -> None:
     """Test that adding a todo then listing shows the added todo."""
+    cli = CLI(TodoCore(InMemoryRepo()))
+
     # Get initial count
-    initial_list = main(["list"])
+    initial_list = cli.main(["list"])
 
     # Add a todo
-    add_result = main(["add", "integration test todo"])
+    add_result = cli.main(["add", "integration test todo"])
     assert add_result == "integration test todo"
 
     # List should now contain the new todo
-    final_list = main(["list"])
+    final_list = cli.main(["list"])
     assert "integration test todo" in final_list
     assert len(final_list) > len(initial_list)
 
@@ -63,19 +70,22 @@ def test_main_raises_error_for_unknown_command() -> None:
     """Test that main raises an error for unknown commands."""
     import pytest
 
+    cli = CLI(TodoCore(InMemoryRepo()))
     with pytest.raises(ValueError, match="Unknown command"):
-        main(["unknown"])
+        cli.main(["unknown"])
 
 
 def test_add_command_concatenates_multiple_strings() -> None:
     """Test that add command concatenates multiple string arguments."""
-    result = main(["add", "buy", "milk"])
+    cli = CLI(TodoCore(InMemoryRepo()))
+    result = cli.main(["add", "buy", "milk"])
     assert result == "buy milk"
 
 
 def test_main_handles_empty_args() -> None:
     """Test that main handles empty args gracefully."""
-    result = main([])
+    cli = CLI(TodoCore(InMemoryRepo()))
+    result = cli.main([])
     assert result is None
 
 
