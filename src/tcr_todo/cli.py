@@ -39,19 +39,20 @@ def run(args: CLIArgs) -> str:
 
 def main(args: list[str] | None = None) -> str | None:
     """Main CLI entry point."""
-    if not args:
-        return None
-
-    command = args[0]
-    if command == "add":
-        title = " ".join(args[1:])
-        add_command = AddCommand(title=title)
-        return run(add_command)
-    elif command == "list":
-        list_command = ListCommand()
-        return run(list_command)
-    else:
-        raise ValueError(f"Unknown command: {command}")
+    match args:
+        case None | []:
+            return None
+        case ["add", *title_parts]:
+            title = " ".join(title_parts)
+            add_command = AddCommand(title=title)
+            return run(add_command)
+        case ["list"]:
+            list_command = ListCommand()
+            return run(list_command)
+        case [command, *_]:
+            raise ValueError(f"Unknown command: {command}")
+        case _:
+            return None
 
 
 def cli_main() -> None:
