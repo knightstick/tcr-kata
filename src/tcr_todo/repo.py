@@ -30,3 +30,19 @@ class InMemoryRepo:
     def retrieve_todos(self) -> list[Todo]:
         """Retrieve all stored todos."""
         return self._todos.copy()
+
+
+class FileRepo:
+    """File-based todo repository using JSON."""
+
+    def __init__(self, filename: str) -> None:
+        """Initialize with filename for storage."""
+        self.filename = filename
+
+    def store_todo(self, todo: Todo) -> None:
+        """Store a todo item to file."""
+        pass  # TODO: implement
+
+    def retrieve_todos(self) -> list[Todo]:
+        """Retrieve todos from file."""
+        return []  # TODO: implement

@@ -3,10 +3,11 @@
 A place to capture ideas and tangents that come up during TCR development, inspired by Kent Beck's note-keeping style in "TDD by Example".
 
 ## Current Focus
-✅ Building persistence layer with dependency injection - COMPLETE!
+Building FileRepo for persistent file-based storage
 
-## Main Goal
+## Previous Goals
 ✅ Create a todo from the command line - COMPLETE!
+✅ Building persistence layer with dependency injection - COMPLETE!
 
 ## Completed Session Goals
 ✅ Implement actual persistence in `repo.store_todo()` (in-memory list)
@@ -18,6 +19,7 @@ A place to capture ideas and tangents that come up during TCR development, inspi
 ✅ todocli unknown should raise an error (ValueError with helpful message)
 ✅ Multiple argument concatenation for add command (user-friendly)
 ✅ Pattern matching for main CLI parsing (cleaner, more declarative)
+✅ Refactor to explicit InMemoryRepo class (ready for multiple repo types)
 
 ## Parking Lot
 - Ideas and questions that come up during development
@@ -26,6 +28,7 @@ A place to capture ideas and tangents that come up during TCR development, inspi
 - Architecture decisions to revisit
 - Todos can have optional descriptions
 - Make sure that our repos have the same interface using types (Protocol/interface)
+- The models probably belong in the core (domain models in domain layer)
 
 ## Decisions
 - Use pattern matching for CLI argument parsing (clean, declarative, easy to test with args list)
