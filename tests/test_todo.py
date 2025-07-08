@@ -4,6 +4,7 @@ from tcr_todo.core import (
     add_todo,
     _list_todos,
     list_todos_from_repo,
+    TodoCore,
 )
 from tcr_todo.models import Todo
 from tcr_todo.repo import InMemoryRepo, FileRepo, TodoRepository
@@ -65,3 +66,18 @@ def test_inmemory_repo_satisfies_protocol() -> None:
     assert hasattr(repo, "retrieve_todos")
     assert callable(repo.store_todo)
     assert callable(repo.retrieve_todos)
+
+
+def test_todo_core_with_inmemory_repo() -> None:
+    """Test TodoCore with InMemoryRepo."""
+    repo = InMemoryRepo()
+    core = TodoCore(repo)
+
+    # Add a todo
+    todo = core.add_todo("test task")
+    assert todo.title == "test task"
+
+    # List todos
+    result = core.list_todos()
+    assert len(result.todos) == 1
+    assert result.todos[0].title == "test task"
