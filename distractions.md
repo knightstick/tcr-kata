@@ -3,7 +3,7 @@
 A place to capture ideas and tangents that come up during TCR development, inspired by Kent Beck's note-keeping style in "TDD by Example".
 
 ## Current Focus
-✅ Building FileRepo for persistent file-based storage - COMPLETE!
+✅ SQLiteRepo with production-grade database persistence - COMPLETE!
 
 ## Previous Goals
 ✅ Create a todo from the command line - COMPLETE!
@@ -27,6 +27,11 @@ A place to capture ideas and tangents that come up during TCR development, inspi
 ✅ Cleaned up old module-level repo code
 ✅ TodoCore and CLI dependency injection refactoring
 ✅ Write to a default file that is in a gitignored folder (.data/todos.json)
+✅ Organized repo implementations into separate files (repo/ subfolder)
+✅ SQLiteRepo implementation with database schema and ACID transactions
+✅ Comprehensive SQLiteRepo test suite with Protocol compliance
+✅ CLI switched to SQLiteRepo as default (.data/todos.db)
+✅ Feature branch workflow with TCR methodology
 
 ## Parking Lot
 - Ideas and questions that come up during development
@@ -38,6 +43,9 @@ A place to capture ideas and tangents that come up during TCR development, inspi
 
 ## Decisions
 - Use pattern matching for CLI argument parsing (clean, declarative, easy to test with args list)
+- SQLiteRepo as default persistence layer (production-grade database with ACID guarantees)
+- Organized repo structure: `/repo` subfolder with separate files per implementation
+- Protocol-based architecture enables seamless repository swapping
 
 ## Notes
 - When running TCR script, narrate the red/green feedback for user visibility (format ✅/❌, type check ✅/❌, tests ✅/❌)
