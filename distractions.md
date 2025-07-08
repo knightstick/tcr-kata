@@ -25,6 +25,8 @@ A place to capture ideas and tangents that come up during TCR development, inspi
 ✅ TodoRepository Protocol for type-safe repo interfaces
 ✅ Protocol compliance verification with clean type checking
 ✅ Cleaned up old module-level repo code
+✅ TodoCore and CLI dependency injection refactoring
+✅ Write to a default file that is in a gitignored folder (.data/todos.json)
 
 ## Parking Lot
 - Ideas and questions that come up during development
@@ -33,7 +35,6 @@ A place to capture ideas and tangents that come up during TCR development, inspi
 - Architecture decisions to revisit
 - Todos can have optional descriptions
 - The models probably belong in the core (domain models in domain layer) - TRICKIER: circular imports make this complex
-- Write to a default file that is in a gitignored folder
 
 ## Decisions
 - Use pattern matching for CLI argument parsing (clean, declarative, easy to test with args list)
