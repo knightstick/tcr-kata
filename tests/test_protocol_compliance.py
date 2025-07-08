@@ -13,8 +13,4 @@ def test_repos_satisfy_protocol() -> None:
     memory_repo: TodoRepository = InMemoryRepo()
     file_repo: TodoRepository = FileRepo("test.json")
 
-    # Mypy guarantees these have the right methods with correct signatures
-    assert callable(memory_repo.store_todo)
-    assert callable(memory_repo.retrieve_todos)
-    assert callable(file_repo.store_todo)
-    assert callable(file_repo.retrieve_todos)
+    # That's it! Mypy guarantees everything we need.
