@@ -5,6 +5,7 @@ from typing import Callable
 from tcr_todo.models import Todo, TodoList
 from tcr_todo.repo import InMemoryRepo, TodoRepository
 
+# Legacy type aliases - kept for backward compatibility with _add_todo/_list_todos
 StoreTodoFunction = Callable[[Todo], None]
 RetrieveTodosFunction = Callable[[], list[Todo]]
 
