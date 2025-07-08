@@ -99,7 +99,9 @@ def main(args: list[str] | None = None) -> str | None:
 
 def cli_main() -> None:
     """CLI entry point for poetry script."""
-    result = main(sys.argv[1:])
+    todo_core = TodoCore(FileRepo("todos.json"))
+    cli = CLI(todo_core)
+    result = cli.main(sys.argv[1:])
     if result:
         print(result)
 
