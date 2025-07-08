@@ -1,6 +1,8 @@
 """Tests for CLI functionality."""
 
-from tcr_todo.cli import main, run, AddCommand, ListCommand
+from tcr_todo.cli import main, run, AddCommand, ListCommand, CLI
+from tcr_todo.core import TodoCore
+from tcr_todo.repo import InMemoryRepo
 
 
 def test_can_call_cli_main() -> None:
@@ -75,3 +77,18 @@ def test_main_handles_empty_args() -> None:
     """Test that main handles empty args gracefully."""
     result = main([])
     assert result is None
+
+
+def test_cli_class_with_inmemory_repo() -> None:
+    """Test CLI class with InMemoryRepo for isolation."""
+    repo = InMemoryRepo()
+    todo_core = TodoCore(repo)
+    cli = CLI(todo_core)
+
+    # Test adding a todo
+    add_result = cli.main(["add", "test task"])
+    assert add_result == "test task"
+
+    # Test listing todos
+    list_result = cli.main(["list"])
+    assert "test task" in list_result
