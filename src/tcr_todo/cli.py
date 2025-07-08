@@ -4,7 +4,8 @@ import argparse
 import sys
 from dataclasses import dataclass
 
-from tcr_todo.core import add_todo, list_todos
+from tcr_todo.core import TodoCore
+from tcr_todo.repo import FileRepo
 
 
 @dataclass
@@ -23,15 +24,18 @@ class ListCommand:
 
 CLIArgs = AddCommand | ListCommand
 
+# Initialize TodoCore with FileRepo
+_todo_core = TodoCore(FileRepo("todos.json"))
+
 
 def run(args: CLIArgs) -> str:
     """Execute CLI command with structured args."""
     match args:
         case AddCommand(title=title):
-            todo = add_todo(title)
+            todo = _todo_core.add_todo(title)
             return str(todo)
         case ListCommand():
-            todos = list_todos()
+            todos = _todo_core.list_todos()
             return str(todos)
         case _:
             raise ValueError(f"Unknown command: {args}")
