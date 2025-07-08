@@ -3,31 +3,26 @@
 from typing import Callable
 
 from tcr_todo.models import Todo, TodoList
-from tcr_todo.repo import InMemoryRepo, TodoRepository
+from tcr_todo.repo import FileRepo, TodoRepository
 
 
 class TodoCore:
-    """A todo item."""
+    """Core todo functionality with dependency injection."""
 
-    def __init__(self, title: str) -> None:
-        """Initialize a todo with title."""
-        self.title = title
+    def __init__(self, repo: TodoRepository) -> None:
+        """Initialize with a todo repository."""
+        self.repo = repo
 
-    def __str__(self) -> str:
-        """Return string representation of todo."""
-        return self.title
+    def add_todo(self, title: str) -> Todo:
+        """Add a todo item."""
+        todo = Todo(title)
+        self.repo.store_todo(todo)
+        return todo
 
-
-class TodoListCore:
-    """A container for todo items that knows how to display itself."""
-
-    def __init__(self, todos: list[TodoCore]) -> None:
-        """Initialize with a list of todos."""
-        self.todos = todos
-
-    def __str__(self) -> str:
-        """Return formatted string representation of the todo list."""
-        return str([str(todo) for todo in self.todos])
+    def list_todos(self) -> TodoList:
+        """List all todo items."""
+        todos = self.repo.retrieve_todos()
+        return TodoList(todos)
 
 
 # Legacy type aliases - kept for backward compatibility with _add_todo/_list_todos
@@ -35,7 +30,7 @@ StoreTodoFunction = Callable[[Todo], None]
 RetrieveTodosFunction = Callable[[], list[Todo]]
 
 # Default repo instance
-_default_repo = InMemoryRepo()
+_default_repo = FileRepo("todos.json")
 
 
 def _add_todo(title: str, store: StoreTodoFunction | None = None) -> Todo:
@@ -68,8 +63,3 @@ def list_todos_from_repo(repo: TodoRepository) -> TodoList:
     """List all todo items from a specific repository."""
     todos = _list_todos(repo.retrieve_todos)
     return TodoList(todos)
-
-
-def create_todo_core(title: str) -> TodoCore:
-    """Create a new TodoCore instance."""
-    return TodoCore(title)

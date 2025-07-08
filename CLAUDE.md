@@ -21,6 +21,8 @@ Running TCR...
 
 This ensures the user gets immediate visual feedback about each step of the TCR process, maintaining the important red/green feedback loop that's core to TDD and TCR workflows.
 
+- You can use the scripts/tcr.py script to run the TCR workflow
+
 ## Distractions File
 
 Use `distractions.md` for Kent Beck style note-keeping:
@@ -34,3 +36,7 @@ Use `distractions.md` for Kent Beck style note-keeping:
 ## TCR Learning
 
 - When the TCR fails, I want to know what we LOST and what we LEARNED
+
+## Workflow Principles
+
+- Always follow the TCR flow, and as a corrollary, take small steps unless you are extremely confident

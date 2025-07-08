@@ -32,7 +32,7 @@ A place to capture ideas and tangents that come up during TCR development, inspi
 - Refactoring opportunities
 - Architecture decisions to revisit
 - Todos can have optional descriptions
-- The models probably belong in the core (domain models in domain layer)
+- The models probably belong in the core (domain models in domain layer) - TRICKIER: circular imports make this complex
 
 ## Decisions
 - Use pattern matching for CLI argument parsing (clean, declarative, easy to test with args list)
