@@ -3,7 +3,7 @@
 import os
 import tempfile
 from tcr_todo.models import Todo
-from tcr_todo.repo import FileRepo
+from tcr_todo.repo import FileRepo, TodoRepository
 
 
 def test_file_repo_can_be_created() -> None:
@@ -62,3 +62,15 @@ def test_store_multiple_todos() -> None:
     finally:
         if os.path.exists(filename):
             os.unlink(filename)
+
+
+def test_file_repo_satisfies_protocol() -> None:
+    """Test that FileRepo satisfies TodoRepository protocol."""
+    repo: TodoRepository = FileRepo("test.json")
+
+    # Type checker will verify this assignment is valid
+    # If FileRepo doesn't satisfy the protocol, mypy will complain
+    assert hasattr(repo, "store_todo")
+    assert hasattr(repo, "retrieve_todos")
+    assert callable(repo.store_todo)
+    assert callable(repo.retrieve_todos)

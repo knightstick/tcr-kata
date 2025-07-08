@@ -1,7 +1,7 @@
 """Tests for todo functionality."""
 
 from tcr_todo.core import add_todo, _list_todos, list_todos_from_repo, Todo
-from tcr_todo.repo import InMemoryRepo, FileRepo
+from tcr_todo.repo import InMemoryRepo, FileRepo, TodoRepository
 
 
 def test_add_todo_creates_todo_with_title() -> None:
@@ -48,3 +48,15 @@ def test_repos_work_with_protocol() -> None:
     file_repo = FileRepo("test.json")
     result = list_todos_from_repo(file_repo)  # Should return empty list
     assert len(result.todos) == 0
+
+
+def test_inmemory_repo_satisfies_protocol() -> None:
+    """Test that InMemoryRepo satisfies TodoRepository protocol."""
+    repo: TodoRepository = InMemoryRepo()
+
+    # Type checker will verify this assignment is valid
+    # If InMemoryRepo doesn't satisfy the protocol, mypy will complain
+    assert hasattr(repo, "store_todo")
+    assert hasattr(repo, "retrieve_todos")
+    assert callable(repo.store_todo)
+    assert callable(repo.retrieve_todos)
