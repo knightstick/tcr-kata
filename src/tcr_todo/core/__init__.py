@@ -1,9 +1,7 @@
 """Core todo functionality."""
 
-from typing import Callable
-
 from tcr_todo.models import Todo, TodoList
-from tcr_todo.repo import FileRepo, TodoRepository
+from tcr_todo.repo import TodoRepository
 
 
 class TodoCore:

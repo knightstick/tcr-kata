@@ -1,6 +1,5 @@
 """Command line interface for tcr_todo."""
 
-import argparse
 import sys
 from dataclasses import dataclass
 
