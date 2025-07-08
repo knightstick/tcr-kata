@@ -3,7 +3,7 @@
 from typing import Callable
 
 from tcr_todo.models import Todo, TodoList
-from tcr_todo.repo import store_todo, retrieve_todos, InMemoryRepo
+from tcr_todo.repo import InMemoryRepo
 
 StoreTodoFunction = Callable[[Todo], None]
 RetrieveTodosFunction = Callable[[], list[Todo]]
