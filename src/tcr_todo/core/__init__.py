@@ -22,6 +22,13 @@ def add_todo(title: str) -> Todo:
     return _add_todo(title, store_todo)
 
 
+def _list_todos(retrieve: RetrieveTodosFunction | None = None) -> list[Todo]:
+    """List all todo items (internal)."""
+    if retrieve:
+        return retrieve()
+    return []
+
+
 def list_todos() -> list[Todo]:
     """List all todo items."""
     return []
