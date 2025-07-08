@@ -32,7 +32,7 @@ def run(args: CLIArgs) -> str:
             return str(todo)
         case ListCommand():
             todos = list_todos()
-            return str([str(todo) for todo in todos])
+            return str(todos)
         case _:
             raise ValueError(f"Unknown command: {args}")
 

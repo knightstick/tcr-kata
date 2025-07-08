@@ -2,7 +2,7 @@
 
 from typing import Callable
 
-from tcr_todo.models import Todo
+from tcr_todo.models import Todo, TodoList
 from tcr_todo.repo import store_todo, retrieve_todos
 
 StoreTodoFunction = Callable[[Todo], None]
@@ -29,6 +29,7 @@ def _list_todos(retrieve: RetrieveTodosFunction | None = None) -> list[Todo]:
     return []
 
 
-def list_todos() -> list[Todo]:
+def list_todos() -> TodoList:
     """List all todo items."""
-    return _list_todos(retrieve_todos)
+    todos = _list_todos(retrieve_todos)
+    return TodoList(todos)
