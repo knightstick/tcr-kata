@@ -61,8 +61,11 @@ class FileRepo:
         if not os.path.exists(self.filename):
             return []
 
-        with open(self.filename, "r") as f:
-            data = json.load(f)
+        try:
+            with open(self.filename, "r") as f:
+                data = json.load(f)
+        except (json.JSONDecodeError, FileNotFoundError):
+            return []
 
         todos = []
         for item in data:
