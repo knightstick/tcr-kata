@@ -50,8 +50,8 @@ def main(args: list[str] | None = None) -> str | None:
     elif command == "list":
         list_command = ListCommand()
         return run(list_command)
-
-    return None
+    else:
+        raise ValueError(f"Unknown command: {command}")
 
 
 def cli_main() -> None:

@@ -55,3 +55,11 @@ def test_add_then_list_integration() -> None:
     final_list = main(["list"])
     assert "integration test todo" in final_list
     assert len(final_list) > len(initial_list)
+
+
+def test_main_raises_error_for_unknown_command() -> None:
+    """Test that main raises an error for unknown commands."""
+    import pytest
+
+    with pytest.raises(ValueError, match="Unknown command"):
+        main(["unknown"])
