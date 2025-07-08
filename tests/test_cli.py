@@ -40,3 +40,18 @@ def test_main_handles_list_command() -> None:
     assert isinstance(result, str)
     assert result.startswith("[")
     assert result.endswith("]")
+
+
+def test_add_then_list_integration() -> None:
+    """Test that adding a todo then listing shows the added todo."""
+    # Get initial count
+    initial_list = main(["list"])
+
+    # Add a todo
+    add_result = main(["add", "integration test todo"])
+    assert add_result == "integration test todo"
+
+    # List should now contain the new todo
+    final_list = main(["list"])
+    assert "integration test todo" in final_list
+    assert len(final_list) > len(initial_list)
