@@ -1,8 +1,10 @@
 """Tests for todo functionality."""
 
+import tempfile
+from pathlib import Path
 from tcr_todo.core import TodoCore
 from tcr_todo.models import Todo
-from tcr_todo.repo import InMemoryRepo, FileRepo, TodoRepository
+from tcr_todo.repo import InMemoryRepo, FileRepo, SQLiteRepo, TodoRepository
 
 
 def test_add_todo_creates_todo_with_title() -> None:
@@ -81,3 +83,20 @@ def test_todo_core_with_inmemory_repo() -> None:
     result = core.list_todos()
     assert len(result.todos) == 1
     assert result.todos[0].title == "test task"
+
+
+def test_todo_core_with_sqlite_repo() -> None:
+    """Test TodoCore with SQLiteRepo."""
+    with tempfile.TemporaryDirectory() as temp_dir:
+        db_path = Path(temp_dir) / "test.db"
+        repo = SQLiteRepo(str(db_path))
+        core = TodoCore(repo)
+
+        # Add a todo
+        todo = core.add_todo("sqlite test task")
+        assert todo.title == "sqlite test task"
+
+        # List todos
+        result = core.list_todos()
+        assert len(result.todos) == 1
+        assert result.todos[0].title == "sqlite test task"
