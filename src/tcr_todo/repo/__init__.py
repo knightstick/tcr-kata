@@ -19,5 +19,6 @@ class TodoRepository(Protocol):
 # Import and re-export all repository implementations
 from .memory import InMemoryRepo
 from .file import FileRepo
+from .sqlite import SQLiteRepo
 
-__all__ = ["TodoRepository", "InMemoryRepo", "FileRepo"]
+__all__ = ["TodoRepository", "InMemoryRepo", "FileRepo", "SQLiteRepo"]
