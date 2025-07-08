@@ -43,7 +43,18 @@ class FileRepo:
 
     def store_todo(self, todo: Todo) -> None:
         """Store a todo item to file."""
-        pass  # TODO: implement
+        # Read existing todos
+        todos = self.retrieve_todos()
+
+        # Add new todo
+        todos.append(todo)
+
+        # Convert to JSON format
+        data = [{"title": t.title} for t in todos]
+
+        # Write back to file
+        with open(self.filename, "w") as f:
+            json.dump(data, f, indent=2)
 
     def retrieve_todos(self) -> list[Todo]:
         """Retrieve todos from file."""
