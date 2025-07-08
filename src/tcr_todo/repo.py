@@ -1,5 +1,7 @@
 """Todo repository functions."""
 
+import json
+import os
 from tcr_todo.models import Todo
 
 # In-memory storage for todos
@@ -45,4 +47,15 @@ class FileRepo:
 
     def retrieve_todos(self) -> list[Todo]:
         """Retrieve todos from file."""
-        return []  # TODO: implement
+        if not os.path.exists(self.filename):
+            return []
+
+        with open(self.filename, "r") as f:
+            data = json.load(f)
+
+        todos = []
+        for item in data:
+            todo = Todo(item["title"])
+            todos.append(todo)
+
+        return todos
