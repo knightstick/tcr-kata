@@ -46,7 +46,13 @@
 - But realistically? Probably not for production
 - Great for learning though!
 
-### Slide 7: "Your turn to experiment"
+### Slide 7: "Oh, and I made these slides with MARP + Claude"
+- MARP = Markdown Presentation Ecosystem
+- Claude Code helped write the slides and speaker notes
+- Even this presentation is part of the TCR experiment!
+- Meta: AI helping present about AI collaboration
+
+### Slide 8: "Your turn to experiment"
 - Try Claude Code on something small
 - Give it feedback when it messes up
 - Share what you learn
@@ -57,6 +63,12 @@
 - Show the TCR script in action
 - Maybe a failed test → revert example
 - "Here's what we built together"
+
+### Final Slide: "Claude's Final Thought" (Joke)
+- "I think I just helped a human present about how I helped them code..."
+- "🤖 Peak recursion achieved"
+- Meta humor about AI presenting about AI collaboration
+- End on a fun, self-aware note
 
 ## Key Messages
 - You should be experimenting with Claude Code

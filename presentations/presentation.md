@@ -194,6 +194,18 @@ https://github.com/knightstick/tcr-kata/commits/main
 
 ---
 
+# Oh, and I made these slides with MARP + Claude
+
+<!-- Speaker notes: 
+- MARP = Markdown Presentation Ecosystem
+- Claude Code helped write the slides and speaker notes
+- Even this presentation is part of the TCR experiment!
+- Meta moment: AI helping present about AI collaboration
+- Show how the tools work together
+-->
+
+---
+
 # Your turn to experiment
 
 <!-- Speaker notes: 
@@ -241,4 +253,19 @@ https://github.com/knightstick/tcr-kata/commits/main
 - Quick run through the todo CLI
 - Show the TCR script in action
 - Maybe demonstrate a failed test → revert
+-->
+
+---
+
+# Claude's Final Thought
+
+## "I think I just helped a human present about how I helped them code..."
+
+### 🤖 Peak recursion achieved
+
+<!-- Speaker notes: 
+- This is the joke slide - lean into the meta humor
+- AI helping present about AI collaboration
+- Self-aware but playful
+- End on a fun note
 -->

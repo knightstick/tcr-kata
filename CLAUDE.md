@@ -37,6 +37,12 @@ Use `distractions.md` for Kent Beck style note-keeping:
 
 - When the TCR fails, I want to know what we LOST and what we LEARNED
 
+## MARP Presentations
+
+When making changes to MARP presentations:
+- Run `npm run marp:html` to rebuild the HTML output
+- Use `npm run marp:pdf` to generate PDF if needed
+
 ## Workflow Principles
 
 - Always follow the TCR flow, and as a corrollary, take small steps unless you are extremely confident
