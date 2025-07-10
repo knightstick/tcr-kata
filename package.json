@@ -1,0 +1,22 @@
+{
+  "name": "tcr-kata",
+  "version": "1.0.0",
+  "description": "## Goals",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "marp": "marp presentations/presentation.md -o presentations/presentation.html",
+    "marp:html": "marp presentations/presentation.md --html -o presentations/presentation.html",
+    "marp:pdf": "marp presentations/presentation.md --pdf -o presentations/presentation.pdf"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.2.0"
+  }
+}
